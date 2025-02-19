@@ -4,7 +4,13 @@ const nodemailer = require("nodemailer");
 
 const app = express();
 app.use(express.json());
-app.use(cors());
+app.use(
+  cors({
+    origin: "https://resonant-taiyaki-fe0e99.netlify.app", // Allow only this frontend
+    methods: "GET,POST", // Allow only specific methods
+    allowedHeaders: "Content-Type,Authorization", // Allow only necessary headers
+  })
+);
 
 // Nodemailer configuration
 const transporter = nodemailer.createTransport({
