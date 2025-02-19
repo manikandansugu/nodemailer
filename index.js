@@ -4,13 +4,6 @@ const nodemailer = require("nodemailer");
 
 const app = express();
 app.use(express.json());
-app.use(
-  cors({
-    origin: "*", // Allow only this frontend
-    methods: "GET,POST", // Allow only specific methods
-    allowedHeaders: "Content-Type,Authorization", // Allow only necessary headers
-  })
-);
 
 app.use(cors());
 
